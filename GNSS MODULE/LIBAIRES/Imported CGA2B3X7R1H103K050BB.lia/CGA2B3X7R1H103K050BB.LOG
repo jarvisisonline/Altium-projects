@@ -1,0 +1,27 @@
+PCAD Importer Log
+Project : CGA2B3X7R1H103K050BB.LibPkg
+
+Section : C:\Users\raham\OneDrive\Altium Projects\GNSS MODULE\LIBAIRES\CGA2B3X7R1H103K050BB.lia
+    Section : PCB Library - CGA2B3X7R1H103K050BB.PcbLib
+        Section : Load Messages
+            Warning - 1 : Skipping Token CGA2B3X7R1H103K050BB On Line 112
+            Warning - 1 : Skipping Token attachedSymbol On Line 167
+        EndSection
+
+        Section : Import Messages
+        EndSection
+    EndSection
+
+    Section : SCH Library - CGA2B3X7R1H103K050BB.SchLib
+        Section : Parsing Messages
+            Warning - 1 : Skipping Token padStyleDef On Line 9
+            Warning - 1 : Skipping Token multiLayer On Line 84
+            Warning - 1 : Skipping Token layerContents On Line 88
+            Warning - 1 : Skipping Token layerContents On Line 96
+            Warning - 1 : Skipping Token layerContents On Line 104
+        EndSection
+
+        Section : Generating SCH Library - CGA2B3X7R1H103K050BB.SchLib
+        EndSection
+    EndSection
+EndSection

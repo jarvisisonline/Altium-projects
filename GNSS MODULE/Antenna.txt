@@ -1,0 +1,8 @@
+Active Antenna 
+-Contains Amplifer
+-It has same Antenna proerties as passive antenna like patch,directive,chip
+Passive Antenna 
+-Doesn't contain Amplifer
+SOURCE 
+https://www.rfvenue.com/blog/2014/12/15/active-v-passive-anntennas
+

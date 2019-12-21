@@ -1,0 +1,27 @@
+PCAD Importer Log
+Project : 0402CS-5N6XJLU.LibPkg
+
+Section : C:\Users\raham\OneDrive\Altium Projects\GNSS MODULE\LIBAIRES\0402CS-5N6XJLU.lia
+    Section : PCB Library - 0402CS-5N6XJLU.PcbLib
+        Section : Load Messages
+            Warning - 1 : Skipping Token 0402CS-5N6XJLU On Line 112
+            Warning - 1 : Skipping Token attachedSymbol On Line 159
+        EndSection
+
+        Section : Import Messages
+        EndSection
+    EndSection
+
+    Section : SCH Library - 0402CS-5N6XJLU.SchLib
+        Section : Parsing Messages
+            Warning - 1 : Skipping Token padStyleDef On Line 9
+            Warning - 1 : Skipping Token multiLayer On Line 84
+            Warning - 1 : Skipping Token layerContents On Line 88
+            Warning - 1 : Skipping Token layerContents On Line 94
+            Warning - 1 : Skipping Token layerContents On Line 102
+        EndSection
+
+        Section : Generating SCH Library - 0402CS-5N6XJLU.SchLib
+        EndSection
+    EndSection
+EndSection

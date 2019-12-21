@@ -1,0 +1,102 @@
+Protel Design System Design Rule Check
+PCB File : C:\Users\raham\OneDrive\Altium Projects\GNSS MODULE\Altium Files\GNNS,IMU\PCB1.PcbDoc
+Date     : 12/13/2019
+Time     : 3:14:22 PM
+
+Processing Rule : Clearance Constraint (Gap=8mil) (OnLayer('Top Layer')),(All)
+Rule Violations :0
+
+Processing Rule : Clearance Constraint (Gap=7.874mil) (All),(All)
+Rule Violations :0
+
+Processing Rule : Clearance Constraint (Gap=8mil) (OnLayer('Bottom Layer')),(All)
+Rule Violations :0
+
+Processing Rule : Short-Circuit Constraint (Allowed=No) (All),(All)
+Rule Violations :0
+
+Processing Rule : Un-Routed Net Constraint ( (All) )
+Rule Violations :0
+
+Processing Rule : Modified Polygon (Allow modified: No), (Allow shelved: No)
+Rule Violations :0
+
+Processing Rule : Width Constraint (Min=3.5mil) (Max=100mil) (Preferred=15mil) (All)
+Rule Violations :0
+
+Processing Rule : Power Plane Connect Rule(Relief Connect )(Expansion=20mil) (Conductor Width=10mil) (Air Gap=10mil) (Entries=4) (All)
+Rule Violations :0
+
+Processing Rule : Minimum Annular Ring (Minimum=3mil) (All)
+Rule Violations :0
+
+Processing Rule : Hole Size Constraint (Min=7.874mil) (Max=248.031mil) (All)
+Rule Violations :0
+
+Processing Rule : Hole To Hole Clearance (Gap=10mil) (All),(All)
+Rule Violations :0
+
+Processing Rule : Minimum Solder Mask Sliver (Gap=3.937mil) (All),(All)
+Rule Violations :0
+
+Processing Rule : Silk To Solder Mask (Clearance=3.937mil) (IsPad),(All)
+Rule Violations :0
+
+Processing Rule : Silk to Silk (Clearance=3.937mil) (All),(All)
+Rule Violations :0
+
+Processing Rule : Net Antennae (Tolerance=0mil) (All)
+Rule Violations :0
+
+Processing Rule : Board Clearance Constraint (Gap=0mil) (All)
+Rule Violations :0
+
+Processing Rule : Height Constraint (Min=0mil) (Max=1000mil) (Prefered=500mil) (All)
+Rule Violations :0
+
+Waived Violations Of Rule : Minimum Solder Mask Sliver (Gap=3.937mil) (All),(All)
+   Waived Violation between Minimum Solder Mask Sliver Constraint: (3.811mil < 3.937mil) Between Pad C7-1(765.434mil,252.452mil) on Top Layer And Pad C7-2(694.568mil,252.452mil) on Top Layer [Top Solder] Mask Sliver [3.811mil]Waived by RAHAMATH ALI at 12/13/2019 3:13:22 PM
+   Waived Violation between Minimum Solder Mask Sliver Constraint: (3.811mil < 3.937mil) Between Pad C9-1(620mil,1085.434mil) on Top Layer And Pad C9-2(620mil,1014.568mil) on Top Layer [Top Solder] Mask Sliver [3.811mil]Waived by RAHAMATH ALI at 12/13/2019 12:19:49 AM
+   Waived Violation between Minimum Solder Mask Sliver Constraint: (1.842mil < 3.937mil) Between Pad R1-1(908.268mil,30mil) on Top Layer And Pad R1-2(941.732mil,30mil) on Top Layer [Top Solder] Mask Sliver [1.842mil]Waived by RAHAMATH ALI at 12/13/2019 12:19:44 AM
+   Waived Violation between Minimum Solder Mask Sliver Constraint: (1.843mil < 3.937mil) Between Pad R2-1(610mil,145mil) on Top Layer And Pad R2-2(610mil,174.528mil) on Top Layer [Top Solder] Mask Sliver [1.843mil]Waived by RAHAMATH ALI at 12/13/2019 12:16:38 AM
+   Waived Violation between Minimum Solder Mask Sliver Constraint: (1.843mil < 3.937mil) Between Pad R5-1(610mil,58.218mil) on Top Layer And Pad R5-2(610mil,95.62mil) on Top Layer [Top Solder] Mask Sliver [1.843mil]Waived by RAHAMATH ALI at 12/13/2019 12:16:32 AM
+   Waived Violation between Minimum Solder Mask Sliver Constraint: (3.812mil < 3.937mil) Between Pad U0-1(699.804mil,492.382mil) on Top Layer And Pad U0-2(699.804mil,535.69mil) on Top Layer [Top Solder] Mask Sliver [3.812mil]Waived by RAHAMATH ALI at 12/13/2019 12:16:53 AM
+   Waived Violation between Minimum Solder Mask Sliver Constraint: (3.812mil < 3.937mil) Between Pad U0-10(325mil,838.84mil) on Top Layer And Pad U0-11(325mil,795.532mil) on Top Layer [Top Solder] Mask Sliver [3.812mil]Waived by RAHAMATH ALI at 12/13/2019 12:17:55 AM
+   Waived Violation between Minimum Solder Mask Sliver Constraint: (3.812mil < 3.937mil) Between Pad U0-11(325mil,795.532mil) on Top Layer And Pad U0-12(325mil,752.224mil) on Top Layer [Top Solder] Mask Sliver [3.812mil]Waived by RAHAMATH ALI at 12/13/2019 12:17:55 AM
+   Waived Violation between Minimum Solder Mask Sliver Constraint: (3.81mil < 3.937mil) Between Pad U0-12(325mil,752.224mil) on Top Layer And Pad U0-13(325mil,708.918mil) on Top Layer [Top Solder] Mask Sliver [3.81mil]Waived by RAHAMATH ALI at 12/13/2019 12:23:03 AM
+   Waived Violation between Minimum Solder Mask Sliver Constraint: (3.812mil < 3.937mil) Between Pad U0-13(325mil,708.918mil) on Top Layer And Pad U0-14(325mil,665.61mil) on Top Layer [Top Solder] Mask Sliver [3.812mil]Waived by RAHAMATH ALI at 12/13/2019 12:17:41 AM
+   Waived Violation between Minimum Solder Mask Sliver Constraint: (3.81mil < 3.937mil) Between Pad U0-14(325mil,665.61mil) on Top Layer And Pad U0-15(325mil,622.304mil) on Top Layer [Top Solder] Mask Sliver [3.81mil]Waived by RAHAMATH ALI at 12/13/2019 12:17:55 AM
+   Waived Violation between Minimum Solder Mask Sliver Constraint: (3.812mil < 3.937mil) Between Pad U0-15(325mil,622.304mil) on Top Layer And Pad U0-16(325mil,578.996mil) on Top Layer [Top Solder] Mask Sliver [3.812mil]Waived by RAHAMATH ALI at 12/13/2019 12:22:59 AM
+   Waived Violation between Minimum Solder Mask Sliver Constraint: (3.81mil < 3.937mil) Between Pad U0-16(325mil,578.996mil) on Top Layer And Pad U0-17(325mil,535.69mil) on Top Layer [Top Solder] Mask Sliver [3.81mil]Waived by RAHAMATH ALI at 12/13/2019 12:17:41 AM
+   Waived Violation between Minimum Solder Mask Sliver Constraint: (3.812mil < 3.937mil) Between Pad U0-17(325mil,535.69mil) on Top Layer And Pad U0-18(325mil,492.382mil) on Top Layer [Top Solder] Mask Sliver [3.812mil]Waived by RAHAMATH ALI at 12/13/2019 12:17:41 AM
+   Waived Violation between Minimum Solder Mask Sliver Constraint: (3.81mil < 3.937mil) Between Pad U0-2(699.804mil,535.69mil) on Top Layer And Pad U0-3(699.804mil,578.996mil) on Top Layer [Top Solder] Mask Sliver [3.81mil]Waived by RAHAMATH ALI at 12/13/2019 12:16:49 AM
+   Waived Violation between Minimum Solder Mask Sliver Constraint: (3.812mil < 3.937mil) Between Pad U0-3(699.804mil,578.996mil) on Top Layer And Pad U0-4(699.804mil,622.304mil) on Top Layer [Top Solder] Mask Sliver [3.812mil]Waived by RAHAMATH ALI at 12/13/2019 12:19:59 AM
+   Waived Violation between Minimum Solder Mask Sliver Constraint: (3.81mil < 3.937mil) Between Pad U0-4(699.804mil,622.304mil) on Top Layer And Pad U0-5(699.804mil,665.61mil) on Top Layer [Top Solder] Mask Sliver [3.81mil]Waived by RAHAMATH ALI at 12/13/2019 12:17:18 AM
+   Waived Violation between Minimum Solder Mask Sliver Constraint: (3.812mil < 3.937mil) Between Pad U0-5(699.804mil,665.61mil) on Top Layer And Pad U0-6(699.804mil,708.918mil) on Top Layer [Top Solder] Mask Sliver [3.812mil]Waived by RAHAMATH ALI at 12/13/2019 12:17:12 AM
+   Waived Violation between Minimum Solder Mask Sliver Constraint: (3.81mil < 3.937mil) Between Pad U0-6(699.804mil,708.918mil) on Top Layer And Pad U0-7(699.804mil,752.224mil) on Top Layer [Top Solder] Mask Sliver [3.81mil]Waived by RAHAMATH ALI at 12/13/2019 12:20:03 AM
+   Waived Violation between Minimum Solder Mask Sliver Constraint: (3.812mil < 3.937mil) Between Pad U0-7(699.804mil,752.224mil) on Top Layer And Pad U0-8(699.804mil,795.532mil) on Top Layer [Top Solder] Mask Sliver [3.812mil]Waived by RAHAMATH ALI at 12/13/2019 12:17:41 AM
+   Waived Violation between Minimum Solder Mask Sliver Constraint: (3.812mil < 3.937mil) Between Pad U0-8(699.804mil,795.532mil) on Top Layer And Pad U0-9(699.804mil,838.84mil) on Top Layer [Top Solder] Mask Sliver [3.812mil]Waived by RAHAMATH ALI at 12/13/2019 12:17:41 AM
+   Waived Violation between Minimum Solder Mask Sliver Constraint: (3.811mil < 3.937mil) Between Pad U1-1(757.756mil,172.402mil) on Top Layer And Pad U1-2(757.756mil,135mil) on Top Layer [Top Solder] Mask Sliver [3.811mil]Waived by RAHAMATH ALI at 12/13/2019 12:19:40 AM
+   Waived Violation between Minimum Solder Mask Sliver Constraint: (3.811mil < 3.937mil) Between Pad U1-2(757.756mil,135mil) on Top Layer And Pad U1-3(757.756mil,97.598mil) on Top Layer [Top Solder] Mask Sliver [3.811mil]Waived by RAHAMATH ALI at 12/13/2019 12:16:25 AM
+   Waived Violation between Minimum Solder Mask Sliver Constraint: (1.839mil < 3.937mil) Between Pad U3-1(175.471mil,364.98mil) on Top Layer And Pad U3-12(174.979mil,385.154mil) on Top Layer [Top Solder] Mask Sliver [1.839mil]Waived by RAHAMATH ALI at 12/13/2019 3:13:22 PM
+   Waived Violation between Minimum Solder Mask Sliver Constraint: (1.844mil < 3.937mil) Between Pad U3-1(175.471mil,364.98mil) on Top Layer And Pad U3-2(195.157mil,364.98mil) on Top Layer [Top Solder] Mask Sliver [1.844mil]Waived by RAHAMATH ALI at 12/13/2019 3:13:22 PM
+   Waived Violation between Minimum Solder Mask Sliver Constraint: (1.847mil < 3.937mil) Between Pad U3-10(175.471mil,425.02mil) on Top Layer And Pad U3-11(174.979mil,404.838mil) on Top Layer [Top Solder] Mask Sliver [1.847mil]Waived by RAHAMATH ALI at 12/13/2019 3:13:22 PM
+   Waived Violation between Minimum Solder Mask Sliver Constraint: (1.844mil < 3.937mil) Between Pad U3-10(175.471mil,425.02mil) on Top Layer And Pad U3-9(195.157mil,425.02mil) on Top Layer [Top Solder] Mask Sliver [1.844mil]Waived by RAHAMATH ALI at 12/13/2019 3:13:22 PM
+   Waived Violation between Minimum Solder Mask Sliver Constraint: (1.842mil < 3.937mil) Between Pad U3-11(174.979mil,404.838mil) on Top Layer And Pad U3-12(174.979mil,385.154mil) on Top Layer [Top Solder] Mask Sliver [1.842mil]Waived by RAHAMATH ALI at 12/13/2019 3:13:22 PM
+   Waived Violation between Minimum Solder Mask Sliver Constraint: (2.61mil < 3.937mil) Between Pad U3-11(174.979mil,404.838mil) on Top Layer And Pad U3-9(195.157mil,425.02mil) on Top Layer [Top Solder] Mask Sliver [2.61mil]Waived by RAHAMATH ALI at 12/13/2019 3:13:22 PM
+   Waived Violation between Minimum Solder Mask Sliver Constraint: (2.604mil < 3.937mil) Between Pad U3-12(174.979mil,385.154mil) on Top Layer And Pad U3-2(195.157mil,364.98mil) on Top Layer [Top Solder] Mask Sliver [2.604mil]Waived by RAHAMATH ALI at 12/13/2019 3:13:22 PM
+   Waived Violation between Minimum Solder Mask Sliver Constraint: (1.844mil < 3.937mil) Between Pad U3-2(195.157mil,364.98mil) on Top Layer And Pad U3-3(214.843mil,364.98mil) on Top Layer [Top Solder] Mask Sliver [1.844mil]Waived by RAHAMATH ALI at 12/13/2019 3:13:22 PM
+   Waived Violation between Minimum Solder Mask Sliver Constraint: (1.842mil < 3.937mil) Between Pad U3-3(214.843mil,364.98mil) on Top Layer And Pad U3-4(234.527mil,364.98mil) on Top Layer [Top Solder] Mask Sliver [1.842mil]Waived by RAHAMATH ALI at 12/13/2019 3:13:22 PM
+   Waived Violation between Minimum Solder Mask Sliver Constraint: (2.603mil < 3.937mil) Between Pad U3-3(214.843mil,364.98mil) on Top Layer And Pad U3-5(235.019mil,385.154mil) on Top Layer [Top Solder] Mask Sliver [2.603mil]Waived by RAHAMATH ALI at 12/13/2019 3:13:22 PM
+   Waived Violation between Minimum Solder Mask Sliver Constraint: (1.839mil < 3.937mil) Between Pad U3-4(234.527mil,364.98mil) on Top Layer And Pad U3-5(235.019mil,385.154mil) on Top Layer [Top Solder] Mask Sliver [1.839mil]Waived by RAHAMATH ALI at 12/13/2019 3:13:22 PM
+   Waived Violation between Minimum Solder Mask Sliver Constraint: (1.842mil < 3.937mil) Between Pad U3-5(235.019mil,385.154mil) on Top Layer And Pad U3-6(235.019mil,404.838mil) on Top Layer [Top Solder] Mask Sliver [1.842mil]Waived by RAHAMATH ALI at 12/13/2019 3:13:22 PM
+   Waived Violation between Minimum Solder Mask Sliver Constraint: (1.847mil < 3.937mil) Between Pad U3-6(235.019mil,404.838mil) on Top Layer And Pad U3-7(234.527mil,425.02mil) on Top Layer [Top Solder] Mask Sliver [1.847mil]Waived by RAHAMATH ALI at 12/13/2019 3:13:22 PM
+   Waived Violation between Minimum Solder Mask Sliver Constraint: (2.608mil < 3.937mil) Between Pad U3-6(235.019mil,404.838mil) on Top Layer And Pad U3-8(214.843mil,425.02mil) on Top Layer [Top Solder] Mask Sliver [2.608mil]Waived by RAHAMATH ALI at 12/13/2019 3:13:22 PM
+   Waived Violation between Minimum Solder Mask Sliver Constraint: (1.842mil < 3.937mil) Between Pad U3-7(234.527mil,425.02mil) on Top Layer And Pad U3-8(214.843mil,425.02mil) on Top Layer [Top Solder] Mask Sliver [1.842mil]Waived by RAHAMATH ALI at 12/13/2019 3:13:22 PM
+   Waived Violation between Minimum Solder Mask Sliver Constraint: (1.844mil < 3.937mil) Between Pad U3-8(214.843mil,425.02mil) on Top Layer And Pad U3-9(195.157mil,425.02mil) on Top Layer [Top Solder] Mask Sliver [1.844mil]Waived by RAHAMATH ALI at 12/13/2019 3:13:22 PM
+Waived Violations :39
+
+
+Violations Detected : 0
+Waived Violations : 39
+Time Elapsed        : 00:00:00

@@ -1,0 +1,27 @@
+PCAD Importer Log
+Project : GRM188C71A475KE11D.LibPkg
+
+Section : C:\Users\raham\OneDrive\Altium Projects\GNSS MODULE\LIBAIRES\GRM188C71A475KE11D.lia
+    Section : PCB Library - GRM188C71A475KE11D.PcbLib
+        Section : Load Messages
+            Warning - 1 : Skipping Token GRM188C71A475KE11D On Line 112
+            Warning - 1 : Skipping Token attachedSymbol On Line 167
+        EndSection
+
+        Section : Import Messages
+        EndSection
+    EndSection
+
+    Section : SCH Library - GRM188C71A475KE11D.SchLib
+        Section : Parsing Messages
+            Warning - 1 : Skipping Token padStyleDef On Line 9
+            Warning - 1 : Skipping Token multiLayer On Line 84
+            Warning - 1 : Skipping Token layerContents On Line 88
+            Warning - 1 : Skipping Token layerContents On Line 94
+            Warning - 1 : Skipping Token layerContents On Line 102
+        EndSection
+
+        Section : Generating SCH Library - GRM188C71A475KE11D.SchLib
+        EndSection
+    EndSection
+EndSection

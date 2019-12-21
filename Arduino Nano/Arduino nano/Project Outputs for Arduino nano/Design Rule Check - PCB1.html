@@ -1,0 +1,560 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html">
+<style type="text/css">
+		h1, h2, h3, h4, h5, h6 {
+			font-family : segoe ui;
+			color : black;
+			background-color : #EDE7D9;
+			padding: 0.3em;
+		}
+
+		h1 {
+			font-size: 1.2em;
+		}		
+
+		h2 {
+			font-size: 1.2em;
+		}
+
+		body {
+			font-family : segoe ui;
+		}
+
+		td, th {
+			padding: 0.5em;
+			text-align : left;
+			width: 10em;
+		}
+		th {
+			background-color : #EEEEEE;
+
+		}
+		th.column1, td.column1 {
+			text-align: left;
+			width : auto;
+		}
+		table {
+			width : 100%;
+			font-size: 0.9em;
+		}
+
+		.DRC_summary_header {
+			padding-bottom : 0.1em;
+			border : 0px solid black;
+			width: 100%;
+			align: left;
+		}
+
+		.DRC_summary_header_col1,
+		.DRC_summary_header_col2, 
+		.DRC_summary_header_col3 {
+			color : black;
+			font-size:100%;
+			padding : 0em;
+			padding-top : 0.2em;
+			padding-bottom 0.2em;
+			border : 0px solid black;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.DRC_summary_header_col1 {
+			font-weight: bold;
+			width: 8em;
+		}
+
+		.DRC_summary_header_col2 {
+			width: 0.1em;
+		
+		}
+
+		.DRC_summary_header_col3 {
+			width : auto;
+		}
+
+		.header_holder {
+		    Width = 100%;
+		    border = 0px solid green;
+		    padding = 0;
+		}
+
+
+		.front_matter, .front_matter_column1, .front_matter_column2, .front_matter_column3
+		{
+			left : 0;
+			top : 0;
+			padding: 0em;
+			padding-top : 0.1em;
+			border : 0px solid black;
+			width : 100%;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.front_matter_column1 {
+			width : 8em;
+			font-weight: bold;
+		}
+
+		.front_matter_column2 {
+			width: 0.1em;
+		}
+
+		.front_matter_column3 {
+			width : auto;
+		}
+
+		.total_column1, .total_column {
+			font-weight : bold;
+		}
+		.total_column1 {
+			text-align : left;
+		}
+		.warning, .error {
+			color : red;
+			font-weight : bold;
+		}
+		tr.onmouseout_odd {
+			background-color : #white;
+		}
+		tr.onmouseout_even { 
+			background-color : #FAFAFA;
+		}
+		tr.onmouseover_odd, tr.onmouseover_even { 
+			background-color : #EEEEEE;
+		} 
+		a:link, a:visited, .q a:link,.q a:active,.q {
+			color: #21489e; 
+		}
+		a:link.callback, a:visited.callback { 
+			color: #21489e;
+		}
+		a:link.customize, a:visited.customize {
+			color: #C0C0C0;
+			position: absolute; 
+			right: 10px;
+		}	
+		p.contents_level1 {
+			font-weight : bold;
+			font-size : 110%;
+			margin : 0.5em;
+		}
+		p.contents_level2 {
+			position : relative;
+			left : 20px;
+			margin : 0.5em;
+		}
+	</style><script type="text/javascript">
+		function coordToMils(coord) {
+			var number = coord / 10000;
+			
+			if (number != number.toFixed(3))
+				number = number.toFixed(3);
+
+			return number + 'mil'
+		}
+
+		function coordToMM(coord) {
+			var number = 0.0254 * coord / 10000;
+			
+			if (number != number.toFixed(4))
+				number = number.toFixed(4);
+			
+			return number + 'mm'
+		}
+	
+		function convertCoord(coordNode, units) {
+			for (var i = 0; i < coordNode.childNodes.length; i++) {
+				coordNode.removeChild(coordNode.childNodes[i]);
+			}
+
+			var coord = coordNode.getAttribute('value');
+			if (coord != null) {
+				if (units == 'mm') {
+					textNode = document.createTextNode(coordToMM(coord));
+					coordNode.appendChild(textNode);
+				} else if (units == 'mil') {
+					textNode = document.createTextNode(coordToMils(coord));		
+					coordNode.appendChild(textNode);	
+				}
+			}
+		}
+	
+		function convertUnits(unitNode, units) {
+			for (var i = 0; i < unitNode.childNodes.length; i++) {
+				unitNode.removeChild(unitNode.childNodes[i]);		
+			}
+		
+			textNode = document.createTextNode(units); 
+			unitNode.appendChild(textNode);
+		}
+	
+		function changeUnits(radio_input, units) {
+			if (radio_input.checked) {
+			
+				var elements = document.getElementsByName('coordinate');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertCoord(elements[i], units);
+					}
+				}
+	
+				var elements = document.getElementsByName('units');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertUnits(elements[i], units);
+					}
+				}
+			}
+		}
+	</script><title>Design Rule Verification Report</title>
+</head>
+<body onload=""><img ALT="Altium" src="
+			file://C:\Users\Public\Documents\Altium\AD19\Templates\AD_logo.png
+		"><h1>Design Rule Verification Report</h1>
+<table class="header_holder">
+<td class="column1">
+<table class="front_matter">
+<tr class="front_matter">
+<td class="front_matter_column1">Date:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">11/11/2019</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">3:54:22 AM</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Elapsed Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">00:00:01</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Filename:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3"><a href="file:///C:\Users\raham\Desktop\RUDRA\R20\Arduino nano\Arduino nano\PCB1.PcbDoc" class="file"><acronym title="C:\Users\raham\Desktop\RUDRA\R20\Arduino nano\Arduino nano\PCB1.PcbDoc">C:\Users\raham\Desktop\RUDRA\R20\Arduino nano\Arduino nano\PCB1.PcbDoc</acronym></a></td>
+</tr>
+</table>
+</td>
+<td class="column2">
+<table class="DRC_summary_header">
+<tr>
+<td class="DRC_summary_header_col1">Warnings:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3">0</td></tr>
+<tr>
+<td class="DRC_summary_header_col1">Rule Violations:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3" style="color : red">14</td></tr>
+<tr>
+<td class="DRC_summary_header_col1">Waived Violations:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3" style="color : red">51</td></tr>
+</table>
+</td>
+</table><a name="IDYOPWKE2NPX2HCT44SNHPKIXLUFKN0O31HY32ZZGSUS1XORO3AYNL"><h2>Summary</h2></a><table>
+<tr>
+<th class="column1">Warnings</th>
+<th class="column2">Count</th>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">0</td>
+</tr>
+</table><br><table>
+<tr>
+<th class="column1">Rule Violations</th>
+<th class="column2">Count</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#ID1S2HH4HTBWIPMNQXPQIQABBJLPCGDIHO3S4XVAFEA5IBYELLAGEL">Clearance Constraint (Gap=0.203mm) (OnLayer('Top Layer')),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDNDZ4ASGPB0IEJVOQT45U3D2AHIZEYPRIS5HHZMCKBM3GRN2MWOBC">Clearance Constraint (Gap=0.2mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#ID4CFK3PMAGA4RD2ODJ10FE3AUYKBJRB210IP0VGK11UTLAM2PCMPF">Clearance Constraint (Gap=0.203mm) (OnLayer('Bottom Layer')),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDFIE5KZL1C55CKDX4RMNTZIIV1GVYSL1X0BERMXUWQC0OG0HS3J">Short-Circuit Constraint (Allowed=No) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDQESFVJRKPWPZNT0MGF05DE3FCHVBKHB4YOY3FLOEEP2MCZN5TDSN">Un-Routed Net Constraint ( (All) )</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#ID15PWRRHQHX0QOL0G31410XP1MEFVV2V5MI3UQRBIQORS31RELZ2N">Modified Polygon (Allow modified: No), (Allow shelved: No)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDQDD5HG5EQIRELXPTDA03PZM43LQ15GIERN22VQFEEXVV03VTEPQI">Width Constraint (Min=0.1mm) (Max=0.5mm) (Preferred=0.2mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDMU2W41UEKO2XDLXOWPV45BDQ0KZOFGCRMNH4FOF1C2IMAN423NMK">Power Plane Connect Rule(Relief Connect )(Expansion=0.508mm) (Conductor Width=0.254mm) (Air Gap=0.254mm) (Entries=4) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDS2AIPS2CYDBMJAIGMIELJEAPKRKKUDKZ2TLIICT31PH4YADWDSL">Minimum Annular Ring (Minimum=0.1mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#ID3NMUQ03WGNXT1LR1QBHKUJEZJLEFZKJBSL4VLMGQGGSV4POUKTB">Hole Size Constraint (Min=0.2mm) (Max=6.3mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#ID2XP41QDBD2CJBF5AKVUSF54TEJ2YVRBQYPACIRM3PULDBDCUXHJO">Hole To Hole Clearance (Gap=0.254mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDDSACYHY0HCN5IHLI311EWG3LSN0H0TYRRBHJ4JJNLJDKQIEKPRBE">Minimum Solder Mask Sliver (Gap=0.1mm) (All),(All)</a></td>
+<td class="column2">14</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDNXE12YAY1ROGLWCNDP2WTWXPGHBO5ZEHM40L0GPO5JPA4RBCKS0D">Silk To Solder Mask (Clearance=0.1mm) (IsPad),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDVOADN1D34PVRGUCLR1DJ2E5PGMH0NMYFEF5V4UJWTXUYJT5JMJMH">Silk to Silk (Clearance=0.1mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDY3YDHHPUTKYMK2XS4UXRPWLYKA5EEGZAE50ECDSUAMALRWRYRPJ">Net Antennae (Tolerance=0mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDMKWPYYHXYYGHCC1KLJFAP1LCBC3I5GIUB2J3JQIZPRZPH5XMYD0K">Board Clearance Constraint (Gap=0mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDPTCCEDYUN5UALADTTISYAQLLPGE5AMDJRPNI2QFJSIGW3MRYSFTG">Height Constraint (Min=0mm) (Max=25.4mm) (Prefered=12.7mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">14</td>
+</tr>
+</table><br><table>
+<tr>
+<th class="column1">Waived Violations</th>
+<th class="column2">Count</th>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDBI3HMQWRMGDNESKYMNZ3DAGTNNKQKC4MBGABBB4ICBXSW5NSENH">Minimum Solder Mask Sliver (Gap=0.1mm) (All),(All)</a></td>
+<td class="column2">51</td>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">51</td>
+</tr>
+</table><br><a name="ID2H5SOSIPNR5STP1MYSHLFNP5MU3CM0CCAC2PKKOVNX0MXB0JHSB"><h2>Rule Violations</h2></a><a name="IDDSACYHY0HCN5IHLI311EWG3LSN0H0TYRRBHJ4JJNLJDKQIEKPRBE"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Minimum Solder Mask Sliver (Gap=0.1mm) (All),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\raham\Desktop\RUDRA\R20\Arduino nano\Arduino nano\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1339.639mil|Location2.X=1347.018mil|Location1.Y=1657.543mil|Location2.Y=1664.339mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\raham\Desktop\RUDRA\R20\Arduino nano\Arduino nano\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1339.639mil|Location2.X=1347.018mil|Location1.Y=1657.543mil|Location2.Y=1664.339mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.072mm &lt; 0.1mm) Between Pad DS2-2(8.814mm,15.864mm) on Top Layer And Via (8.039mm,16.878mm) from Top Layer to Bottom Layer [Top Solder] Mask Sliver [0.072mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\raham\Desktop\RUDRA\R20\Arduino nano\Arduino nano\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1377.407mil|Location2.X=1382.593mil|Location1.Y=1656.513mil|Location2.Y=1661.699mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\raham\Desktop\RUDRA\R20\Arduino nano\Arduino nano\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1377.407mil|Location2.X=1382.593mil|Location1.Y=1656.513mil|Location2.Y=1661.699mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.014mm &lt; 0.1mm) Between Pad DS2-2(8.814mm,15.864mm) on Top Layer And Via (9.258mm,16.878mm) from Top Layer to Bottom Layer [Top Solder] Mask Sliver [0.014mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\raham\Desktop\RUDRA\R20\Arduino nano\Arduino nano\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1415.948mil|Location2.X=1423.032mil|Location1.Y=2342.002mil|Location2.Y=2348.895mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\raham\Desktop\RUDRA\R20\Arduino nano\Arduino nano\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1415.948mil|Location2.X=1423.032mil|Location1.Y=2342.002mil|Location2.Y=2348.895mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.092mm &lt; 0.1mm) Between Pad J1-1(10.617mm,34.986mm) on Top Layer And Via (9.817mm,33.236mm) from Top Layer to Bottom Layer [Top Solder] Mask Sliver [0.092mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\raham\Desktop\RUDRA\R20\Arduino nano\Arduino nano\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1414.172mil|Location2.X=1421.26mil|Location1.Y=2441.001mil|Location2.Y=2447.889mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\raham\Desktop\RUDRA\R20\Arduino nano\Arduino nano\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1414.172mil|Location2.X=1421.26mil|Location1.Y=2441.001mil|Location2.Y=2447.889mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.078mm &lt; 0.1mm) Between Pad J1-2(9.817mm,34.986mm) on Top Layer And Via (10.604mm,36.729mm) from Top Layer to Bottom Layer [Top Solder] Mask Sliver [0.078mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\raham\Desktop\RUDRA\R20\Arduino nano\Arduino nano\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1382.859mil|Location2.X=1389.877mil|Location1.Y=2343.707mil|Location2.Y=2350.676mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\raham\Desktop\RUDRA\R20\Arduino nano\Arduino nano\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1382.859mil|Location2.X=1389.877mil|Location1.Y=2343.707mil|Location2.Y=2350.676mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.092mm &lt; 0.1mm) Between Pad J1-3(9.017mm,34.986mm) on Top Layer And Via (9.817mm,33.236mm) from Top Layer to Bottom Layer [Top Solder] Mask Sliver [0.092mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\raham\Desktop\RUDRA\R20\Arduino nano\Arduino nano\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1351.283mil|Location2.X=1358.381mil|Location1.Y=2441.167mil|Location2.Y=2448.045mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\raham\Desktop\RUDRA\R20\Arduino nano\Arduino nano\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1351.283mil|Location2.X=1358.381mil|Location1.Y=2441.167mil|Location2.Y=2448.045mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.087mm &lt; 0.1mm) Between Pad J1-4(8.217mm,34.986mm) on Top Layer And Via (9.004mm,36.741mm) from Top Layer to Bottom Layer [Top Solder] Mask Sliver [0.087mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\raham\Desktop\RUDRA\R20\Arduino nano\Arduino nano\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1505.525mil|Location2.X=1510.712mil|Location1.Y=1981.709mil|Location2.Y=1986.896mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\raham\Desktop\RUDRA\R20\Arduino nano\Arduino nano\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1505.525mil|Location2.X=1510.712mil|Location1.Y=1981.709mil|Location2.Y=1986.896mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.008mm &lt; 0.1mm) Between Pad R6-1(11.887mm,23.978mm) on Bottom Layer And Via (12.56mm,25.133mm) from Top Layer to Bottom Layer [Bottom Solder] Mask Sliver [0.008mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\raham\Desktop\RUDRA\R20\Arduino nano\Arduino nano\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1451.479mil|Location2.X=1458.218mil|Location1.Y=1740.119mil|Location2.Y=1747.392mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\raham\Desktop\RUDRA\R20\Arduino nano\Arduino nano\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1451.479mil|Location2.X=1458.218mil|Location1.Y=1740.119mil|Location2.Y=1747.392mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.001mm &lt; 0.1mm) Between Pad U1-1(12.109mm,18.267mm) on Bottom Layer And Via (10.608mm,18.674mm) from Top Layer to Bottom Layer [Bottom Solder] Mask Sliver [0.001mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\raham\Desktop\RUDRA\R20\Arduino nano\Arduino nano\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1261.535mil|Location2.X=1266.722mil|Location1.Y=1504.339mil|Location2.Y=1509.526mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\raham\Desktop\RUDRA\R20\Arduino nano\Arduino nano\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1261.535mil|Location2.X=1266.722mil|Location1.Y=1504.339mil|Location2.Y=1509.526mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.014mm &lt; 0.1mm) Between Pad U1-19(5.309mm,12.417mm) on Bottom Layer And Via (6.922mm,12.383mm) from Top Layer to Bottom Layer [Bottom Solder] Mask Sliver [0.014mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\raham\Desktop\RUDRA\R20\Arduino nano\Arduino nano\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1278.872mil|Location2.X=1285.859mil|Location1.Y=2291.856mil|Location2.Y=2298.852mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\raham\Desktop\RUDRA\R20\Arduino nano\Arduino nano\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1278.872mil|Location2.X=1285.859mil|Location1.Y=2291.856mil|Location2.Y=2298.852mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.069mm &lt; 0.1mm) Between Pad U3-3(5.917mm,32.892mm) on Top Layer And Via (7.226mm,32.88mm) from Top Layer to Bottom Layer [Top Solder] Mask Sliver [0.069mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\raham\Desktop\RUDRA\R20\Arduino nano\Arduino nano\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1180.182mil|Location2.X=1185.37mil|Location1.Y=2186.907mil|Location2.Y=2192.093mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\raham\Desktop\RUDRA\R20\Arduino nano\Arduino nano\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1180.182mil|Location2.X=1185.37mil|Location1.Y=2186.907mil|Location2.Y=2192.093mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.005mm &lt; 0.1mm) Between Via (4.167mm,30.34mm) from Top Layer to Bottom Layer And Via (4.331mm,29.146mm) from Top Layer to Bottom Layer [Top Solder] Mask Sliver [0.005mm] / [Bottom Solder] Mask Sliver [0.005mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\raham\Desktop\RUDRA\R20\Arduino nano\Arduino nano\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1283.907mil|Location2.X=1289.093mil|Location1.Y=1478.407mil|Location2.Y=1483.593mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\raham\Desktop\RUDRA\R20\Arduino nano\Arduino nano\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1283.907mil|Location2.X=1289.093mil|Location1.Y=1478.407mil|Location2.Y=1483.593mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.072mm &lt; 0.1mm) Between Via (6.845mm,11.113mm) from Top Layer to Bottom Layer And Via (6.922mm,12.383mm) from Top Layer to Bottom Layer [Top Solder] Mask Sliver [0.072mm] / [Bottom Solder] Mask Sliver [0.072mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\raham\Desktop\RUDRA\R20\Arduino nano\Arduino nano\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1322.407mil|Location2.X=1329.091mil|Location1.Y=1762.141mil|Location2.Y=1769.678mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\raham\Desktop\RUDRA\R20\Arduino nano\Arduino nano\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1322.407mil|Location2.X=1329.091mil|Location1.Y=1762.141mil|Location2.Y=1769.678mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.06mm &lt; 0.1mm) Between Via (7.277mm,19.19mm) from Top Layer to Bottom Layer And Via (8.445mm,18.719mm) from Top Layer to Bottom Layer [Top Solder] Mask Sliver [0.06mm] / [Bottom Solder] Mask Sliver [0.06mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\raham\Desktop\RUDRA\R20\Arduino nano\Arduino nano\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1353.407mil|Location2.X=1358.593mil|Location1.Y=1680.407mil|Location2.Y=1685.593mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\raham\Desktop\RUDRA\R20\Arduino nano\Arduino nano\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1353.407mil|Location2.X=1358.593mil|Location1.Y=1680.407mil|Location2.Y=1685.593mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.019mm &lt; 0.1mm) Between Via (8.039mm,16.878mm) from Top Layer to Bottom Layer And Via (9.258mm,16.878mm) from Top Layer to Bottom Layer [Top Solder] Mask Sliver [0.019mm] / [Bottom Solder] Mask Sliver [0.019mm]</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDCPZ3XSJZJITYHODJMFGBH2U3EJ2ZP5CZO2EUP4PLKSOF5W4G3JNN"><h2>Waived Violations</h2></a><a name="IDBI3HMQWRMGDNESKYMNZ3DAGTNNKQKC4MBGABBB4ICBXSW5NSENH"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="waived">Minimum Solder Mask Sliver (Gap=0.1mm) (All),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\raham\Desktop\RUDRA\R20\Arduino nano\Arduino nano\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1152.265mil|Location2.X=1157.452mil|Location1.Y=2499.407mil|Location2.Y=2504.593mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\raham\Desktop\RUDRA\R20\Arduino nano\Arduino nano\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1152.265mil|Location2.X=1157.452mil|Location1.Y=2499.407mil|Location2.Y=2504.593mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.02mm &lt; 0.1mm) Between Pad C1-1(3.95mm,38.121mm) on Bottom Layer And Pad C1-2(3.95mm,37.241mm) on Bottom Layer [Bottom Solder] Mask Sliver [0.02mm]</acronym></a><br>Waived by RAHAMATH ALI at 11/10/2019 10:41:25 PM</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\raham\Desktop\RUDRA\R20\Arduino nano\Arduino nano\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1223.512mil|Location2.X=1228.699mil|Location1.Y=2503.407mil|Location2.Y=2508.593mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\raham\Desktop\RUDRA\R20\Arduino nano\Arduino nano\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1223.512mil|Location2.X=1228.699mil|Location1.Y=2503.407mil|Location2.Y=2508.593mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.02mm &lt; 0.1mm) Between Pad C2-1(5.809mm,38.273mm) on Bottom Layer And Pad C2-2(5.809mm,37.292mm) on Bottom Layer [Bottom Solder] Mask Sliver [0.02mm]</acronym></a><br>Waived by RAHAMATH ALI at 11/10/2019 10:41:36 PM</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\raham\Desktop\RUDRA\R20\Arduino nano\Arduino nano\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1280.765mil|Location2.X=1285.952mil|Location1.Y=2508.021mil|Location2.Y=2513.207mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\raham\Desktop\RUDRA\R20\Arduino nano\Arduino nano\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1280.765mil|Location2.X=1285.952mil|Location1.Y=2508.021mil|Location2.Y=2513.207mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.02mm &lt; 0.1mm) Between Pad C5-1(7.214mm,38.34mm) on Bottom Layer And Pad C5-2(7.214mm,37.46mm) on Bottom Layer [Bottom Solder] Mask Sliver [0.02mm]</acronym></a><br>Waived by RAHAMATH ALI at 11/10/2019 10:44:06 PM</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\raham\Desktop\RUDRA\R20\Arduino nano\Arduino nano\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1641.296mil|Location2.X=1646.483mil|Location1.Y=2658.115mil|Location2.Y=2663.302mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\raham\Desktop\RUDRA\R20\Arduino nano\Arduino nano\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1641.296mil|Location2.X=1646.483mil|Location1.Y=2658.115mil|Location2.Y=2663.302mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.02mm &lt; 0.1mm) Between Pad C6-1(16.421mm,42.202mm) on Bottom Layer And Pad C6-2(16.421mm,41.222mm) on Bottom Layer [Bottom Solder] Mask Sliver [0.02mm]</acronym></a><br>Waived by RAHAMATH ALI at 11/10/2019 10:44:06 PM</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\raham\Desktop\RUDRA\R20\Arduino nano\Arduino nano\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1227.757mil|Location2.X=1232.944mil|Location1.Y=2343.971mil|Location2.Y=2349.158mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\raham\Desktop\RUDRA\R20\Arduino nano\Arduino nano\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1227.757mil|Location2.X=1232.944mil|Location1.Y=2343.971mil|Location2.Y=2349.158mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.056mm &lt; 0.1mm) Between Pad J1-Shell(4.567mm,35.111mm) on Top Layer And Pad U3-3(5.917mm,32.892mm) on Top Layer [Top Solder] Mask Sliver [0.056mm]</acronym></a><br>Waived by RAHAMATH ALI at 11/10/2019 10:45:01 PM</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\raham\Desktop\RUDRA\R20\Arduino nano\Arduino nano\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1461.079mil|Location2.X=1466.266mil|Location1.Y=1491.977mil|Location2.Y=1497.165mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\raham\Desktop\RUDRA\R20\Arduino nano\Arduino nano\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1461.079mil|Location2.X=1466.266mil|Location1.Y=1491.977mil|Location2.Y=1497.165mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.1mm &lt; 0.1mm) Between Pad U1-10(12.109mm,12.417mm) on Bottom Layer And Pad U1-11(12.109mm,11.767mm) on Bottom Layer [Bottom Solder] Mask Sliver [0.1mm]</acronym></a><br>Waived by RAHAMATH ALI at 11/10/2019 10:44:06 PM</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\raham\Desktop\RUDRA\R20\Arduino nano\Arduino nano\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1461.079mil|Location2.X=1466.266mil|Location1.Y=1517.568mil|Location2.Y=1522.755mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\raham\Desktop\RUDRA\R20\Arduino nano\Arduino nano\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1461.079mil|Location2.X=1466.266mil|Location1.Y=1517.568mil|Location2.Y=1522.755mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.1mm &lt; 0.1mm) Between Pad U1-10(12.109mm,12.417mm) on Bottom Layer And Pad U1-9(12.109mm,13.067mm) on Bottom Layer [Bottom Solder] Mask Sliver [0.1mm]</acronym></a><br>Waived by RAHAMATH ALI at 11/10/2019 10:44:06 PM</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\raham\Desktop\RUDRA\R20\Arduino nano\Arduino nano\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1461.079mil|Location2.X=1466.266mil|Location1.Y=1466.388mil|Location2.Y=1471.574mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\raham\Desktop\RUDRA\R20\Arduino nano\Arduino nano\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1461.079mil|Location2.X=1466.266mil|Location1.Y=1466.388mil|Location2.Y=1471.574mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.1mm &lt; 0.1mm) Between Pad U1-11(12.109mm,11.767mm) on Bottom Layer And Pad U1-12(12.109mm,11.117mm) on Bottom Layer [Bottom Solder] Mask Sliver [0.1mm]</acronym></a><br>Waived by RAHAMATH ALI at 11/10/2019 10:44:06 PM</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\raham\Desktop\RUDRA\R20\Arduino nano\Arduino nano\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1461.079mil|Location2.X=1466.266mil|Location1.Y=1415.206mil|Location2.Y=1420.392mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\raham\Desktop\RUDRA\R20\Arduino nano\Arduino nano\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1461.079mil|Location2.X=1466.266mil|Location1.Y=1415.206mil|Location2.Y=1420.392mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.1mm &lt; 0.1mm) Between Pad U1-13(12.109mm,10.467mm) on Bottom Layer And Pad U1-14(12.109mm,9.817mm) on Bottom Layer [Bottom Solder] Mask Sliver [0.1mm]</acronym></a><br>Waived by RAHAMATH ALI at 11/10/2019 10:44:06 PM</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\raham\Desktop\RUDRA\R20\Arduino nano\Arduino nano\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1193.363mil|Location2.X=1198.55mil|Location1.Y=1415.206mil|Location2.Y=1420.392mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\raham\Desktop\RUDRA\R20\Arduino nano\Arduino nano\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1193.363mil|Location2.X=1198.55mil|Location1.Y=1415.206mil|Location2.Y=1420.392mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.1mm &lt; 0.1mm) Between Pad U1-15(5.309mm,9.817mm) on Bottom Layer And Pad U1-16(5.309mm,10.467mm) on Bottom Layer [Bottom Solder] Mask Sliver [0.1mm]</acronym></a><br>Waived by RAHAMATH ALI at 11/10/2019 10:44:06 PM</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\raham\Desktop\RUDRA\R20\Arduino nano\Arduino nano\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1193.363mil|Location2.X=1198.55mil|Location1.Y=1466.388mil|Location2.Y=1471.574mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\raham\Desktop\RUDRA\R20\Arduino nano\Arduino nano\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1193.363mil|Location2.X=1198.55mil|Location1.Y=1466.388mil|Location2.Y=1471.574mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.1mm &lt; 0.1mm) Between Pad U1-17(5.309mm,11.117mm) on Bottom Layer And Pad U1-18(5.309mm,11.767mm) on Bottom Layer [Bottom Solder] Mask Sliver [0.1mm]</acronym></a><br>Waived by RAHAMATH ALI at 11/10/2019 10:44:06 PM</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\raham\Desktop\RUDRA\R20\Arduino nano\Arduino nano\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1193.363mil|Location2.X=1198.55mil|Location1.Y=1491.977mil|Location2.Y=1497.165mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\raham\Desktop\RUDRA\R20\Arduino nano\Arduino nano\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1193.363mil|Location2.X=1198.55mil|Location1.Y=1491.977mil|Location2.Y=1497.165mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.1mm &lt; 0.1mm) Between Pad U1-18(5.309mm,11.767mm) on Bottom Layer And Pad U1-19(5.309mm,12.417mm) on Bottom Layer [Bottom Solder] Mask Sliver [0.1mm]</acronym></a><br>Waived by RAHAMATH ALI at 11/10/2019 10:44:06 PM</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\raham\Desktop\RUDRA\R20\Arduino nano\Arduino nano\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1193.363mil|Location2.X=1198.55mil|Location1.Y=1517.568mil|Location2.Y=1522.755mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\raham\Desktop\RUDRA\R20\Arduino nano\Arduino nano\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1193.363mil|Location2.X=1198.55mil|Location1.Y=1517.568mil|Location2.Y=1522.755mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.1mm &lt; 0.1mm) Between Pad U1-19(5.309mm,12.417mm) on Bottom Layer And Pad U1-20(5.309mm,13.067mm) on Bottom Layer [Bottom Solder] Mask Sliver [0.1mm]</acronym></a><br>Waived by RAHAMATH ALI at 11/10/2019 10:44:06 PM</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\raham\Desktop\RUDRA\R20\Arduino nano\Arduino nano\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1461.079mil|Location2.X=1466.266mil|Location1.Y=1696.701mil|Location2.Y=1701.889mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\raham\Desktop\RUDRA\R20\Arduino nano\Arduino nano\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1461.079mil|Location2.X=1466.266mil|Location1.Y=1696.701mil|Location2.Y=1701.889mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.1mm &lt; 0.1mm) Between Pad U1-2(12.109mm,17.617mm) on Bottom Layer And Pad U1-3(12.109mm,16.967mm) on Bottom Layer [Bottom Solder] Mask Sliver [0.1mm]</acronym></a><br>Waived by RAHAMATH ALI at 11/10/2019 10:44:06 PM</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\raham\Desktop\RUDRA\R20\Arduino nano\Arduino nano\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1193.363mil|Location2.X=1198.55mil|Location1.Y=1568.749mil|Location2.Y=1573.937mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\raham\Desktop\RUDRA\R20\Arduino nano\Arduino nano\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1193.363mil|Location2.X=1198.55mil|Location1.Y=1568.749mil|Location2.Y=1573.937mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.1mm &lt; 0.1mm) Between Pad U1-21(5.309mm,13.717mm) on Bottom Layer And Pad U1-22(5.309mm,14.367mm) on Bottom Layer [Bottom Solder] Mask Sliver [0.1mm]</acronym></a><br>Waived by RAHAMATH ALI at 11/10/2019 10:44:06 PM</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\raham\Desktop\RUDRA\R20\Arduino nano\Arduino nano\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1193.363mil|Location2.X=1198.55mil|Location1.Y=1594.34mil|Location2.Y=1599.526mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\raham\Desktop\RUDRA\R20\Arduino nano\Arduino nano\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1193.363mil|Location2.X=1198.55mil|Location1.Y=1594.34mil|Location2.Y=1599.526mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.1mm &lt; 0.1mm) Between Pad U1-22(5.309mm,14.367mm) on Bottom Layer And Pad U1-23(5.309mm,15.017mm) on Bottom Layer [Bottom Solder] Mask Sliver [0.1mm]</acronym></a><br>Waived by RAHAMATH ALI at 11/10/2019 10:44:06 PM</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\raham\Desktop\RUDRA\R20\Arduino nano\Arduino nano\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1193.363mil|Location2.X=1198.55mil|Location1.Y=1619.929mil|Location2.Y=1625.117mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\raham\Desktop\RUDRA\R20\Arduino nano\Arduino nano\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1193.363mil|Location2.X=1198.55mil|Location1.Y=1619.929mil|Location2.Y=1625.117mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.1mm &lt; 0.1mm) Between Pad U1-23(5.309mm,15.017mm) on Bottom Layer And Pad U1-24(5.309mm,15.667mm) on Bottom Layer [Bottom Solder] Mask Sliver [0.1mm]</acronym></a><br>Waived by RAHAMATH ALI at 11/10/2019 10:44:06 PM</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\raham\Desktop\RUDRA\R20\Arduino nano\Arduino nano\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1193.363mil|Location2.X=1198.55mil|Location1.Y=1671.111mil|Location2.Y=1676.299mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\raham\Desktop\RUDRA\R20\Arduino nano\Arduino nano\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1193.363mil|Location2.X=1198.55mil|Location1.Y=1671.111mil|Location2.Y=1676.299mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.1mm &lt; 0.1mm) Between Pad U1-25(5.309mm,16.317mm) on Bottom Layer And Pad U1-26(5.309mm,16.967mm) on Bottom Layer [Bottom Solder] Mask Sliver [0.1mm]</acronym></a><br>Waived by RAHAMATH ALI at 11/10/2019 10:44:06 PM</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\raham\Desktop\RUDRA\R20\Arduino nano\Arduino nano\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1193.363mil|Location2.X=1198.55mil|Location1.Y=1696.701mil|Location2.Y=1701.889mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\raham\Desktop\RUDRA\R20\Arduino nano\Arduino nano\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1193.363mil|Location2.X=1198.55mil|Location1.Y=1696.701mil|Location2.Y=1701.889mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.1mm &lt; 0.1mm) Between Pad U1-26(5.309mm,16.967mm) on Bottom Layer And Pad U1-27(5.309mm,17.617mm) on Bottom Layer [Bottom Solder] Mask Sliver [0.1mm]</acronym></a><br>Waived by RAHAMATH ALI at 11/10/2019 10:44:06 PM</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\raham\Desktop\RUDRA\R20\Arduino nano\Arduino nano\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1461.079mil|Location2.X=1466.266mil|Location1.Y=1671.111mil|Location2.Y=1676.299mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\raham\Desktop\RUDRA\R20\Arduino nano\Arduino nano\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1461.079mil|Location2.X=1466.266mil|Location1.Y=1671.111mil|Location2.Y=1676.299mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.1mm &lt; 0.1mm) Between Pad U1-3(12.109mm,16.967mm) on Bottom Layer And Pad U1-4(12.109mm,16.317mm) on Bottom Layer [Bottom Solder] Mask Sliver [0.1mm]</acronym></a><br>Waived by RAHAMATH ALI at 11/10/2019 10:44:06 PM</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\raham\Desktop\RUDRA\R20\Arduino nano\Arduino nano\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1461.079mil|Location2.X=1466.266mil|Location1.Y=1619.929mil|Location2.Y=1625.117mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\raham\Desktop\RUDRA\R20\Arduino nano\Arduino nano\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1461.079mil|Location2.X=1466.266mil|Location1.Y=1619.929mil|Location2.Y=1625.117mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.1mm &lt; 0.1mm) Between Pad U1-5(12.109mm,15.667mm) on Bottom Layer And Pad U1-6(12.109mm,15.017mm) on Bottom Layer [Bottom Solder] Mask Sliver [0.1mm]</acronym></a><br>Waived by RAHAMATH ALI at 11/10/2019 10:44:06 PM</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\raham\Desktop\RUDRA\R20\Arduino nano\Arduino nano\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1461.079mil|Location2.X=1466.266mil|Location1.Y=1594.34mil|Location2.Y=1599.526mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\raham\Desktop\RUDRA\R20\Arduino nano\Arduino nano\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1461.079mil|Location2.X=1466.266mil|Location1.Y=1594.34mil|Location2.Y=1599.526mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.1mm &lt; 0.1mm) Between Pad U1-6(12.109mm,15.017mm) on Bottom Layer And Pad U1-7(12.109mm,14.367mm) on Bottom Layer [Bottom Solder] Mask Sliver [0.1mm]</acronym></a><br>Waived by RAHAMATH ALI at 11/10/2019 10:44:06 PM</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\raham\Desktop\RUDRA\R20\Arduino nano\Arduino nano\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1461.079mil|Location2.X=1466.266mil|Location1.Y=1568.749mil|Location2.Y=1573.937mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\raham\Desktop\RUDRA\R20\Arduino nano\Arduino nano\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1461.079mil|Location2.X=1466.266mil|Location1.Y=1568.749mil|Location2.Y=1573.937mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.1mm &lt; 0.1mm) Between Pad U1-7(12.109mm,14.367mm) on Bottom Layer And Pad U1-8(12.109mm,13.717mm) on Bottom Layer [Bottom Solder] Mask Sliver [0.1mm]</acronym></a><br>Waived by RAHAMATH ALI at 11/10/2019 10:44:06 PM</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\raham\Desktop\RUDRA\R20\Arduino nano\Arduino nano\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1405.989mil|Location2.X=1413.013mil|Location1.Y=1841.931mil|Location2.Y=1848.885mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\raham\Desktop\RUDRA\R20\Arduino nano\Arduino nano\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1405.989mil|Location2.X=1413.013mil|Location1.Y=1841.931mil|Location2.Y=1848.885mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.05mm &lt; 0.1mm) Between Pad U2-1(9.984mm,20.46mm) on Top Layer And Pad U2-2(10.55mm,21.026mm) on Top Layer [Top Solder] Mask Sliver [0.05mm]</acronym></a><br>Waived by RAHAMATH ALI at 11/10/2019 10:44:06 PM</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\raham\Desktop\RUDRA\R20\Arduino nano\Arduino nano\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1517.344mil|Location2.X=1524.298mil|Location1.Y=2074.761mil|Location2.Y=2081.785mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\raham\Desktop\RUDRA\R20\Arduino nano\Arduino nano\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1517.344mil|Location2.X=1524.298mil|Location1.Y=2074.761mil|Location2.Y=2081.785mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.05mm &lt; 0.1mm) Between Pad U2-10(13.378mm,26.895mm) on Top Layer And Pad U2-11(12.813mm,27.461mm) on Top Layer [Top Solder] Mask Sliver [0.05mm]</acronym></a><br>Waived by RAHAMATH ALI at 11/10/2019 10:44:06 PM</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\raham\Desktop\RUDRA\R20\Arduino nano\Arduino nano\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1539.616mil|Location2.X=1546.569mil|Location1.Y=2052.49mil|Location2.Y=2059.515mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\raham\Desktop\RUDRA\R20\Arduino nano\Arduino nano\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1539.616mil|Location2.X=1546.569mil|Location1.Y=2052.49mil|Location2.Y=2059.515mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.05mm &lt; 0.1mm) Between Pad U2-10(13.378mm,26.895mm) on Top Layer And Pad U2-9(13.944mm,26.329mm) on Top Layer [Top Solder] Mask Sliver [0.05mm]</acronym></a><br>Waived by RAHAMATH ALI at 11/10/2019 10:44:06 PM</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\raham\Desktop\RUDRA\R20\Arduino nano\Arduino nano\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1495.073mil|Location2.X=1502.027mil|Location1.Y=2097.032mil|Location2.Y=2104.057mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\raham\Desktop\RUDRA\R20\Arduino nano\Arduino nano\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1495.073mil|Location2.X=1502.027mil|Location1.Y=2097.032mil|Location2.Y=2104.057mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.05mm &lt; 0.1mm) Between Pad U2-11(12.813mm,27.461mm) on Top Layer And Pad U2-12(12.247mm,28.026mm) on Top Layer [Top Solder] Mask Sliver [0.05mm]</acronym></a><br>Waived by RAHAMATH ALI at 11/10/2019 10:44:06 PM</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\raham\Desktop\RUDRA\R20\Arduino nano\Arduino nano\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1472.802mil|Location2.X=1479.756mil|Location1.Y=2119.303mil|Location2.Y=2126.327mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\raham\Desktop\RUDRA\R20\Arduino nano\Arduino nano\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1472.802mil|Location2.X=1479.756mil|Location1.Y=2119.303mil|Location2.Y=2126.327mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.05mm &lt; 0.1mm) Between Pad U2-12(12.247mm,28.026mm) on Top Layer And Pad U2-13(11.681mm,28.592mm) on Top Layer [Top Solder] Mask Sliver [0.05mm]</acronym></a><br>Waived by RAHAMATH ALI at 11/10/2019 10:44:06 PM</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\raham\Desktop\RUDRA\R20\Arduino nano\Arduino nano\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1450.532mil|Location2.X=1457.485mil|Location1.Y=2141.575mil|Location2.Y=2148.599mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\raham\Desktop\RUDRA\R20\Arduino nano\Arduino nano\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1450.532mil|Location2.X=1457.485mil|Location1.Y=2141.575mil|Location2.Y=2148.599mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.05mm &lt; 0.1mm) Between Pad U2-13(11.681mm,28.592mm) on Top Layer And Pad U2-14(11.116mm,29.158mm) on Top Layer [Top Solder] Mask Sliver [0.05mm]</acronym></a><br>Waived by RAHAMATH ALI at 11/10/2019 10:44:06 PM</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\raham\Desktop\RUDRA\R20\Arduino nano\Arduino nano\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1428.26mil|Location2.X=1435.214mil|Location1.Y=2163.845mil|Location2.Y=2170.869mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\raham\Desktop\RUDRA\R20\Arduino nano\Arduino nano\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1428.26mil|Location2.X=1435.214mil|Location1.Y=2163.845mil|Location2.Y=2170.869mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.05mm &lt; 0.1mm) Between Pad U2-14(11.116mm,29.158mm) on Top Layer And Pad U2-15(10.55mm,29.723mm) on Top Layer [Top Solder] Mask Sliver [0.05mm]</acronym></a><br>Waived by RAHAMATH ALI at 11/10/2019 10:44:06 PM</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\raham\Desktop\RUDRA\R20\Arduino nano\Arduino nano\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1405.989mil|Location2.X=1412.943mil|Location1.Y=2186.117mil|Location2.Y=2193.141mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\raham\Desktop\RUDRA\R20\Arduino nano\Arduino nano\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1405.989mil|Location2.X=1412.943mil|Location1.Y=2186.117mil|Location2.Y=2193.141mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.05mm &lt; 0.1mm) Between Pad U2-15(10.55mm,29.723mm) on Top Layer And Pad U2-16(9.984mm,30.289mm) on Top Layer [Top Solder] Mask Sliver [0.05mm]</acronym></a><br>Waived by RAHAMATH ALI at 11/10/2019 10:44:06 PM</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\raham\Desktop\RUDRA\R20\Arduino nano\Arduino nano\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1308.553mil|Location2.X=1315.578mil|Location1.Y=2206.62mil|Location2.Y=2213.573mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\raham\Desktop\RUDRA\R20\Arduino nano\Arduino nano\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1308.553mil|Location2.X=1315.578mil|Location1.Y=2206.62mil|Location2.Y=2213.573mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.05mm &lt; 0.1mm) Between Pad U2-17(8.075mm,30.289mm) on Top Layer And Pad U2-18(7.509mm,29.723mm) on Top Layer [Top Solder] Mask Sliver [0.05mm]</acronym></a><br>Waived by RAHAMATH ALI at 11/10/2019 10:44:06 PM</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\raham\Desktop\RUDRA\R20\Arduino nano\Arduino nano\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1286.282mil|Location2.X=1293.306mil|Location1.Y=2184.349mil|Location2.Y=2191.303mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\raham\Desktop\RUDRA\R20\Arduino nano\Arduino nano\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1286.282mil|Location2.X=1293.306mil|Location1.Y=2184.349mil|Location2.Y=2191.303mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.05mm &lt; 0.1mm) Between Pad U2-18(7.509mm,29.723mm) on Top Layer And Pad U2-19(6.944mm,29.158mm) on Top Layer [Top Solder] Mask Sliver [0.05mm]</acronym></a><br>Waived by RAHAMATH ALI at 11/10/2019 10:44:06 PM</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\raham\Desktop\RUDRA\R20\Arduino nano\Arduino nano\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1264.012mil|Location2.X=1271.036mil|Location1.Y=2162.078mil|Location2.Y=2169.032mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\raham\Desktop\RUDRA\R20\Arduino nano\Arduino nano\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1264.012mil|Location2.X=1271.036mil|Location1.Y=2162.078mil|Location2.Y=2169.032mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.05mm &lt; 0.1mm) Between Pad U2-19(6.944mm,29.158mm) on Top Layer And Pad U2-20(6.378mm,28.592mm) on Top Layer [Top Solder] Mask Sliver [0.05mm]</acronym></a><br>Waived by RAHAMATH ALI at 11/10/2019 10:44:06 PM</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\raham\Desktop\RUDRA\R20\Arduino nano\Arduino nano\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1428.26mil|Location2.X=1435.284mil|Location1.Y=1864.203mil|Location2.Y=1871.156mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\raham\Desktop\RUDRA\R20\Arduino nano\Arduino nano\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1428.26mil|Location2.X=1435.284mil|Location1.Y=1864.203mil|Location2.Y=1871.156mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.05mm &lt; 0.1mm) Between Pad U2-2(10.55mm,21.026mm) on Top Layer And Pad U2-3(11.116mm,21.592mm) on Top Layer [Top Solder] Mask Sliver [0.05mm]</acronym></a><br>Waived by RAHAMATH ALI at 11/10/2019 10:44:06 PM</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\raham\Desktop\RUDRA\R20\Arduino nano\Arduino nano\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1241.739mil|Location2.X=1248.763mil|Location1.Y=2139.807mil|Location2.Y=2146.761mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\raham\Desktop\RUDRA\R20\Arduino nano\Arduino nano\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1241.739mil|Location2.X=1248.763mil|Location1.Y=2139.807mil|Location2.Y=2146.761mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.05mm &lt; 0.1mm) Between Pad U2-20(6.378mm,28.592mm) on Top Layer And Pad U2-21(5.812mm,28.026mm) on Top Layer [Top Solder] Mask Sliver [0.05mm]</acronym></a><br>Waived by RAHAMATH ALI at 11/10/2019 10:44:06 PM</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\raham\Desktop\RUDRA\R20\Arduino nano\Arduino nano\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1219.468mil|Location2.X=1226.492mil|Location1.Y=2117.537mil|Location2.Y=2124.49mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\raham\Desktop\RUDRA\R20\Arduino nano\Arduino nano\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1219.468mil|Location2.X=1226.492mil|Location1.Y=2117.537mil|Location2.Y=2124.49mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.05mm &lt; 0.1mm) Between Pad U2-21(5.812mm,28.026mm) on Top Layer And Pad U2-22(5.247mm,27.461mm) on Top Layer [Top Solder] Mask Sliver [0.05mm]</acronym></a><br>Waived by RAHAMATH ALI at 11/10/2019 10:44:06 PM</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\raham\Desktop\RUDRA\R20\Arduino nano\Arduino nano\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1197.197mil|Location2.X=1204.221mil|Location1.Y=2095.265mil|Location2.Y=2102.219mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\raham\Desktop\RUDRA\R20\Arduino nano\Arduino nano\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1197.197mil|Location2.X=1204.221mil|Location1.Y=2095.265mil|Location2.Y=2102.219mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.05mm &lt; 0.1mm) Between Pad U2-22(5.247mm,27.461mm) on Top Layer And Pad U2-23(4.681mm,26.895mm) on Top Layer [Top Solder] Mask Sliver [0.05mm]</acronym></a><br>Waived by RAHAMATH ALI at 11/10/2019 10:44:06 PM</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\raham\Desktop\RUDRA\R20\Arduino nano\Arduino nano\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1174.926mil|Location2.X=1181.95mil|Location1.Y=2072.994mil|Location2.Y=2079.948mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\raham\Desktop\RUDRA\R20\Arduino nano\Arduino nano\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1174.926mil|Location2.X=1181.95mil|Location1.Y=2072.994mil|Location2.Y=2079.948mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.05mm &lt; 0.1mm) Between Pad U2-23(4.681mm,26.895mm) on Top Layer And Pad U2-24(4.115mm,26.329mm) on Top Layer [Top Solder] Mask Sliver [0.05mm]</acronym></a><br>Waived by RAHAMATH ALI at 11/10/2019 10:44:06 PM</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\raham\Desktop\RUDRA\R20\Arduino nano\Arduino nano\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1174.926mil|Location2.X=1181.88mil|Location1.Y=1955.054mil|Location2.Y=1962.078mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\raham\Desktop\RUDRA\R20\Arduino nano\Arduino nano\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1174.926mil|Location2.X=1181.88mil|Location1.Y=1955.054mil|Location2.Y=1962.078mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.05mm &lt; 0.1mm) Between Pad U2-25(4.115mm,24.42mm) on Top Layer And Pad U2-26(4.681mm,23.854mm) on Top Layer [Top Solder] Mask Sliver [0.05mm]</acronym></a><br>Waived by RAHAMATH ALI at 11/10/2019 10:44:06 PM</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\raham\Desktop\RUDRA\R20\Arduino nano\Arduino nano\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1197.197mil|Location2.X=1204.151mil|Location1.Y=1932.783mil|Location2.Y=1939.807mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\raham\Desktop\RUDRA\R20\Arduino nano\Arduino nano\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1197.197mil|Location2.X=1204.151mil|Location1.Y=1932.783mil|Location2.Y=1939.807mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.05mm &lt; 0.1mm) Between Pad U2-26(4.681mm,23.854mm) on Top Layer And Pad U2-27(5.247mm,23.289mm) on Top Layer [Top Solder] Mask Sliver [0.05mm]</acronym></a><br>Waived by RAHAMATH ALI at 11/10/2019 10:44:06 PM</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\raham\Desktop\RUDRA\R20\Arduino nano\Arduino nano\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1219.468mil|Location2.X=1226.422mil|Location1.Y=1910.512mil|Location2.Y=1917.536mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\raham\Desktop\RUDRA\R20\Arduino nano\Arduino nano\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1219.468mil|Location2.X=1226.422mil|Location1.Y=1910.512mil|Location2.Y=1917.536mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.05mm &lt; 0.1mm) Between Pad U2-27(5.247mm,23.289mm) on Top Layer And Pad U2-28(5.812mm,22.723mm) on Top Layer [Top Solder] Mask Sliver [0.05mm]</acronym></a><br>Waived by RAHAMATH ALI at 11/10/2019 10:44:06 PM</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\raham\Desktop\RUDRA\R20\Arduino nano\Arduino nano\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1241.739mil|Location2.X=1248.693mil|Location1.Y=1888.241mil|Location2.Y=1895.265mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\raham\Desktop\RUDRA\R20\Arduino nano\Arduino nano\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1241.739mil|Location2.X=1248.693mil|Location1.Y=1888.241mil|Location2.Y=1895.265mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.05mm &lt; 0.1mm) Between Pad U2-28(5.812mm,22.723mm) on Top Layer And Pad U2-29(6.378mm,22.157mm) on Top Layer [Top Solder] Mask Sliver [0.05mm]</acronym></a><br>Waived by RAHAMATH ALI at 11/10/2019 10:44:06 PM</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\raham\Desktop\RUDRA\R20\Arduino nano\Arduino nano\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1264.011mil|Location2.X=1270.965mil|Location1.Y=1865.969mil|Location2.Y=1872.993mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\raham\Desktop\RUDRA\R20\Arduino nano\Arduino nano\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1264.011mil|Location2.X=1270.965mil|Location1.Y=1865.969mil|Location2.Y=1872.993mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.05mm &lt; 0.1mm) Between Pad U2-29(6.378mm,22.157mm) on Top Layer And Pad U2-30(6.944mm,21.592mm) on Top Layer [Top Solder] Mask Sliver [0.05mm]</acronym></a><br>Waived by RAHAMATH ALI at 11/10/2019 10:44:06 PM</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\raham\Desktop\RUDRA\R20\Arduino nano\Arduino nano\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1450.531mil|Location2.X=1457.555mil|Location1.Y=1886.474mil|Location2.Y=1893.427mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\raham\Desktop\RUDRA\R20\Arduino nano\Arduino nano\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1450.531mil|Location2.X=1457.555mil|Location1.Y=1886.474mil|Location2.Y=1893.427mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.05mm &lt; 0.1mm) Between Pad U2-3(11.116mm,21.592mm) on Top Layer And Pad U2-4(11.681mm,22.157mm) on Top Layer [Top Solder] Mask Sliver [0.05mm]</acronym></a><br>Waived by RAHAMATH ALI at 11/10/2019 10:44:06 PM</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\raham\Desktop\RUDRA\R20\Arduino nano\Arduino nano\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1286.282mil|Location2.X=1293.236mil|Location1.Y=1843.698mil|Location2.Y=1850.722mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\raham\Desktop\RUDRA\R20\Arduino nano\Arduino nano\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1286.282mil|Location2.X=1293.236mil|Location1.Y=1843.698mil|Location2.Y=1850.722mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.05mm &lt; 0.1mm) Between Pad U2-30(6.944mm,21.592mm) on Top Layer And Pad U2-31(7.509mm,21.026mm) on Top Layer [Top Solder] Mask Sliver [0.05mm]</acronym></a><br>Waived by RAHAMATH ALI at 11/10/2019 10:44:06 PM</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\raham\Desktop\RUDRA\R20\Arduino nano\Arduino nano\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1308.553mil|Location2.X=1315.507mil|Location1.Y=1821.427mil|Location2.Y=1828.451mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\raham\Desktop\RUDRA\R20\Arduino nano\Arduino nano\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1308.553mil|Location2.X=1315.507mil|Location1.Y=1821.427mil|Location2.Y=1828.451mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.05mm &lt; 0.1mm) Between Pad U2-31(7.509mm,21.026mm) on Top Layer And Pad U2-32(8.075mm,20.46mm) on Top Layer [Top Solder] Mask Sliver [0.05mm]</acronym></a><br>Waived by RAHAMATH ALI at 11/10/2019 10:44:06 PM</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\raham\Desktop\RUDRA\R20\Arduino nano\Arduino nano\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1472.803mil|Location2.X=1479.827mil|Location1.Y=1908.745mil|Location2.Y=1915.698mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\raham\Desktop\RUDRA\R20\Arduino nano\Arduino nano\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1472.803mil|Location2.X=1479.827mil|Location1.Y=1908.745mil|Location2.Y=1915.698mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.05mm &lt; 0.1mm) Between Pad U2-4(11.681mm,22.157mm) on Top Layer And Pad U2-5(12.247mm,22.723mm) on Top Layer [Top Solder] Mask Sliver [0.05mm]</acronym></a><br>Waived by RAHAMATH ALI at 11/10/2019 10:44:06 PM</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\raham\Desktop\RUDRA\R20\Arduino nano\Arduino nano\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1495.073mil|Location2.X=1502.097mil|Location1.Y=1931.016mil|Location2.Y=1937.97mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\raham\Desktop\RUDRA\R20\Arduino nano\Arduino nano\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1495.073mil|Location2.X=1502.097mil|Location1.Y=1931.016mil|Location2.Y=1937.97mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.05mm &lt; 0.1mm) Between Pad U2-5(12.247mm,22.723mm) on Top Layer And Pad U2-6(12.813mm,23.289mm) on Top Layer [Top Solder] Mask Sliver [0.05mm]</acronym></a><br>Waived by RAHAMATH ALI at 11/10/2019 10:44:06 PM</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\raham\Desktop\RUDRA\R20\Arduino nano\Arduino nano\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1517.344mil|Location2.X=1524.369mil|Location1.Y=1953.287mil|Location2.Y=1960.241mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\raham\Desktop\RUDRA\R20\Arduino nano\Arduino nano\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1517.344mil|Location2.X=1524.369mil|Location1.Y=1953.287mil|Location2.Y=1960.241mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.05mm &lt; 0.1mm) Between Pad U2-6(12.813mm,23.289mm) on Top Layer And Pad U2-7(13.378mm,23.854mm) on Top Layer [Top Solder] Mask Sliver [0.05mm]</acronym></a><br>Waived by RAHAMATH ALI at 11/10/2019 10:44:06 PM</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\raham\Desktop\RUDRA\R20\Arduino nano\Arduino nano\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1539.615mil|Location2.X=1546.639mil|Location1.Y=1975.559mil|Location2.Y=1982.512mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\raham\Desktop\RUDRA\R20\Arduino nano\Arduino nano\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1539.615mil|Location2.X=1546.639mil|Location1.Y=1975.559mil|Location2.Y=1982.512mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.05mm &lt; 0.1mm) Between Pad U2-7(13.378mm,23.854mm) on Top Layer And Pad U2-8(13.944mm,24.42mm) on Top Layer [Top Solder] Mask Sliver [0.05mm]</acronym></a><br>Waived by RAHAMATH ALI at 11/10/2019 10:44:06 PM</td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br></body>
+</html>

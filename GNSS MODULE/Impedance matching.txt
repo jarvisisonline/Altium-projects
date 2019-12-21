@@ -1,0 +1,11 @@
+Impedance 
+it's the sum of all resistace and reactance(capacitor + inductor)
+ in the circutit 
+1. Voltage Trasfer
+ input impedance high
+ output impedace low
+2. Power 
+ If the impedance is equal on the both sides then maximum power tranfer
+ will occur
+3.High Frequency
+ If the impedance doesn't match then the signal will be refelected back
